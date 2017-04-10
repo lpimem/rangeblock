@@ -1,0 +1,23 @@
+{
+  "name": "blocks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpimem/rangeblock.git"
+  },
+  "author": "",
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/lpimem/rangeblock/issues"
+  },
+  "homepage": "https://github.com/lpimem/rangeblock#readme",
+  "dependencies": {
+    "logez": "^1.0.0"
+  }
+}
