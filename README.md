@@ -13,7 +13,7 @@ It provides a more precise function than `Element.getClientRects()` which return
 
 - __It gives you detailed layout information of a range of text__ in the form of an array of dimensions, each representing a line or block of text. 
 
-- __It provides a text representation for `Range` objects__ in the format of [unique path](#unique-path), so that you can persistant the range. Then you can shared it across users, browsers, or simpled between servers and clients.
+- __It provides a text representation for `Range` objects__ in the format of [unique path](#unique-path), so that you can persistant the range. Then you can save it on server or shared it across users and browsers.
 
 
 ## How is it useful?
