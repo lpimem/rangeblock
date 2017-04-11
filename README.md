@@ -2,9 +2,10 @@
 
 `rangeblock` is a JavaScript library that makes it easy to locate, measure, and represent layouts of text ranges in a web page. 
 
-<img align="left" height="100" src="https://raw.githubusercontent.com/lpimem/rangeblock/master/icons/150x150.png">
+<img align="right" height="100" src="https://raw.githubusercontent.com/lpimem/rangeblock/master/icons/150x150.png">
 
 It provides a more precise function than `Element.getClientRects()` which returns dimensions for each _[border box](https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects#Returns)_. 
+
 
 ## Why do I need it 
 
