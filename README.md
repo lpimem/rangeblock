@@ -1,5 +1,9 @@
 # rangeblock
 
+[![npm version](https://badge.fury.io/js/rangeblock.svg)](https://badge.fury.io/js/rangeblock)
+
+----
+
 `rangeblock` is a JavaScript library that makes it easy to locate, measure, and represent layouts of text ranges in a web page. 
 
 <img align="right" height="100" src="https://raw.githubusercontent.com/lpimem/rangeblock/master/icons/150x150.png">
