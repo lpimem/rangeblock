@@ -7,9 +7,9 @@
 It provides a more precise function than `Element.getClientRects()` which returns dimensions for each _[border box](https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects#Returns)_. 
 
 
-## Why do I need it 
+## Why do I need it?
 
-`rangeblock` does 3 things for you:
+`rangeblock` does 2 things for you:
 
 - __It gives you detailed layout information of a range of text__ in the form of an array of dimensions, each representing a line or block of text. 
 
