@@ -1,7 +1,9 @@
 # rangeblock
 Provide an easy API to measure and represent layouts of selected text ranges in a webpage.
 
-## Why?  
+## Why?
+
+<img align="right" height="100" src="https://raw.githubusercontent.com/lpimem/rangeblock/master/icons/150x150.png">
 
 `rangeblock` library can help you easily find the location and layout of any range of text in the current page. Its possible application is quite open-ended. For example, one can use it to build _non-intrusive_ annotation browswer plug-ins, add annotation functions to your existing webistes, or create high-precision text locator applications. 
 
