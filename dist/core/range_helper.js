@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var upath_helper_1 = require("../util/upath_helper");
 var node_context_1 = require("./node_context");
 var range_cache_1 = require("./range_cache");
-var logez_1 = require("logez");
+var logger = require("logez");
 function iterateRangeNodes(range, visit) {
     var endOffset = range.startContainer == range.endContainer ?
         range.endOffset :
@@ -33,10 +33,10 @@ function iterateRangeNodes(range, visit) {
             tracebackParentNodes(ctx.parent, range, q);
         }
     }
-    logez_1.error('lastChild', range.commonAncestorContainer.lastChild);
-    logez_1.error('endContainer', range.endContainer);
-    logez_1.error('startContainer', range.startContainer);
-    logez_1.error('commonAncestorContainer:', range.commonAncestorContainer);
+    logger.error('lastChild', range.commonAncestorContainer.lastChild);
+    logger.error('endContainer', range.endContainer);
+    logger.error('startContainer', range.startContainer);
+    logger.error('commonAncestorContainer:', range.commonAncestorContainer);
     throw 'iterateRangeNodes: end of sub dom tree met.';
 }
 exports.iterateRangeNodes = iterateRangeNodes;
@@ -47,7 +47,7 @@ function correctRange(rc) {
 exports.correctRange = correctRange;
 function correctEndNode(rc) {
     if (rc.endContainer.nodeType == Node.ELEMENT_NODE && rc.endOffset == 0) {
-        logez_1.debug('range needs correct.');
+        logger.debug('range needs correct.');
         var newEnd = rc.endContainer.firstChild;
         var newEndOffset = 0;
         return new range_cache_1.RangeCache(rc.document, rc.commonAncestorContainer, rc.startContainer, newEnd, rc.startOffset, newEndOffset, rc.meta);
@@ -90,7 +90,7 @@ function restoreRangeCache(doc, meta) {
             rangeAnchors.push(n);
         }
         catch (e) {
-            logez_1.warn(e);
+            logger.error(e);
             return null;
         }
     }

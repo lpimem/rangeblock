@@ -78,3 +78,18 @@ export function createStyleSheet(doc: Document, content: string): StyleSheet {
   let idx = doc.styleSheets.length - 1;
   return doc.styleSheets.item(idx);
 }
+
+export function existsDuplicateId(doc: Document, testId?:string): boolean{
+  let nodes = doc.querySelectorAll('[id]');
+  let total = nodes.length;
+  let idMap: any = {}
+  for (let i = 0; i < total; i ++){
+    let id = nodes.item(i).id;
+    if (idMap[id] && (id == testId || (!testId))){
+      return true;
+    } else {
+      idMap[id] = true;
+    }
+  }
+  return false;
+}

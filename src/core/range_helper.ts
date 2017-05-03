@@ -3,7 +3,7 @@ import { NodeContext } from './node_context';
 import { NodeVisitor } from './node_visitor';
 import { RangeCache } from './range_cache';
 import { RangeMeta } from './range_meta';
-import { debug, error, warn } from 'logez';
+import * as logger from 'logez';
 
 
 /**
@@ -47,10 +47,10 @@ export function iterateRangeNodes(range: RangeCache, visit: NodeVisitor) {
       tracebackParentNodes(ctx.parent, range, q);
     }
   }
-  error('lastChild', range.commonAncestorContainer.lastChild);
-  error('endContainer', range.endContainer);
-  error('startContainer', range.startContainer);
-  error('commonAncestorContainer:', range.commonAncestorContainer);
+  logger.error('lastChild', range.commonAncestorContainer.lastChild);
+  logger.error('endContainer', range.endContainer);
+  logger.error('startContainer', range.startContainer);
+  logger.error('commonAncestorContainer:', range.commonAncestorContainer);
   throw 'iterateRangeNodes: end of sub dom tree met.';
 }
 
@@ -66,7 +66,7 @@ export function correctRange(rc: RangeCache): RangeCache {
 
 function correctEndNode(rc: RangeCache): RangeCache {
   if (rc.endContainer.nodeType == Node.ELEMENT_NODE && rc.endOffset == 0) {
-    debug('range needs correct.');
+    logger.debug('range needs correct.');
     let newEnd = rc.endContainer.firstChild;
     let newEndOffset = 0;
     return new RangeCache(
@@ -117,7 +117,7 @@ export function restoreRangeCache(doc: Document, meta: RangeMeta): RangeCache {
       let n = getNodeByPath(doc, uPath);
       rangeAnchors.push(n);
     } catch (e) {
-      warn(e);
+      logger.error(e);
       return null;
     }
   }

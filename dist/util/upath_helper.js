@@ -5,7 +5,7 @@ function computeUniquePath(n) {
     var path = '';
     if (n.nodeType == Node.ELEMENT_NODE) {
         var e = n;
-        if (e.id) {
+        if (e.id && !dom_helper_1.existsDuplicateId(e.ownerDocument, e.id)) {
             return "#" + e.id;
         }
     }

@@ -1,10 +1,10 @@
-import { asArray } from './dom_helper';
+import { asArray, existsDuplicateId } from './dom_helper';
 
 export function computeUniquePath(n: Node): string {
   let path = '';
   if (n.nodeType == Node.ELEMENT_NODE) {
     let e = n as HTMLElement;
-    if (e.id) {
+    if (e.id && !existsDuplicateId(e.ownerDocument, e.id)) {
       return `#${e.id}`;
     }
   }

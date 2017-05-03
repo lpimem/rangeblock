@@ -84,3 +84,19 @@ function createStyleSheet(doc, content) {
     return doc.styleSheets.item(idx);
 }
 exports.createStyleSheet = createStyleSheet;
+function existsDuplicateId(doc, testId) {
+    var nodes = doc.querySelectorAll('[id]');
+    var total = nodes.length;
+    var idMap = {};
+    for (var i = 0; i < total; i++) {
+        var id = nodes.item(i).id;
+        if (idMap[id] && (id == testId || (!testId))) {
+            return true;
+        }
+        else {
+            idMap[id] = true;
+        }
+    }
+    return false;
+}
+exports.existsDuplicateId = existsDuplicateId;
