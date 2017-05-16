@@ -38,9 +38,10 @@ export function extractSelectedBlock(
  * @param meta metadata used to restore the block. See @class{RangeMeta}
  * @param id [optional] if present, use it as the
  * Block object's id; otherwise generate a random uuid.
+ * @param checkTextMatch [optional] if set as true and the meta.text is different with restored range text, throw an error. Default false.
  */
-export function restoreBlock(win: Window, doc: Document, meta: RangeMeta, id?:string): Block{
-  let rc = restoreRangeCache(doc, meta);
+export function restoreBlock(win: Window, doc: Document, meta: RangeMeta, id?:string, checkTextMatch?:boolean): Block{
+  let rc = restoreRangeCache(doc, meta, checkTextMatch);
   return generateBlock(doc, rc, id);
 }
 

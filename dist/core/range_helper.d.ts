@@ -5,4 +5,4 @@ export declare function iterateRangeNodes(range: RangeCache, visit: NodeVisitor)
 export declare function correctRange(rc: RangeCache): RangeCache;
 export declare function isRangeDetached(rc: RangeCache): boolean;
 export declare function isRange(r: Range | RangeCache): r is Range;
-export declare function restoreRangeCache(doc: Document, meta: RangeMeta): RangeCache;
+export declare function restoreRangeCache(doc: Document, meta: RangeMeta, checkTextMatch?: boolean): RangeCache;

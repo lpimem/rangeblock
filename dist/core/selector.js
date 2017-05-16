@@ -18,8 +18,8 @@ function extractSelectedBlock(win, doc, id) {
     return generateBlock(doc, rc, id);
 }
 exports.extractSelectedBlock = extractSelectedBlock;
-function restoreBlock(win, doc, meta, id) {
-    var rc = range_helper_1.restoreRangeCache(doc, meta);
+function restoreBlock(win, doc, meta, id, checkTextMatch) {
+    var rc = range_helper_1.restoreRangeCache(doc, meta, checkTextMatch);
     return generateBlock(doc, rc, id);
 }
 exports.restoreBlock = restoreBlock;

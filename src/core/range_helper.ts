@@ -110,7 +110,7 @@ function tracebackParentNodes(
   }
 }
 
-export function restoreRangeCache(doc: Document, meta: RangeMeta): RangeCache {
+export function restoreRangeCache(doc: Document, meta: RangeMeta, checkTextMatch=false): RangeCache {
   let rangeAnchors: Node[] = [];
   for (let uPath of [meta.startNodeUPath, meta.endNodeUPath]) {
     try {
@@ -124,6 +124,11 @@ export function restoreRangeCache(doc: Document, meta: RangeMeta): RangeCache {
   let r = doc.createRange();
   r.setStart(rangeAnchors[0], meta.startCharIndex);
   r.setEnd(rangeAnchors[1], meta.endCharIndex);
+  if (checkTextMatch && meta.text){
+    if (meta.text != r.toString()){
+      throw `Cannot restore range: text content dismatch.`;
+    }
+  }
   let rc: RangeCache = RangeCache.make(doc, r, meta);
   return rc;
 }

@@ -81,7 +81,8 @@ function tracebackParentNodes(parent, range, q) {
         }
     }
 }
-function restoreRangeCache(doc, meta) {
+function restoreRangeCache(doc, meta, checkTextMatch) {
+    if (checkTextMatch === void 0) { checkTextMatch = false; }
     var rangeAnchors = [];
     for (var _i = 0, _a = [meta.startNodeUPath, meta.endNodeUPath]; _i < _a.length; _i++) {
         var uPath = _a[_i];
@@ -97,6 +98,11 @@ function restoreRangeCache(doc, meta) {
     var r = doc.createRange();
     r.setStart(rangeAnchors[0], meta.startCharIndex);
     r.setEnd(rangeAnchors[1], meta.endCharIndex);
+    if (checkTextMatch && meta.text) {
+        if (meta.text != r.toString()) {
+            throw "Cannot restore range: text content dismatch.";
+        }
+    }
     var rc = range_cache_1.RangeCache.make(doc, r, meta);
     return rc;
 }
